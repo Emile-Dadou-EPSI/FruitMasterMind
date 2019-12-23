@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/banane"
+        android:title="Banane" />
+    <item
+        android:id="@+id/citron"
+        android:title="Citron"/>
+    <item
+        android:id="@+id/fraise"
+        android:title="Fraise"/>
+    <item
+        android:id="@+id/framboise"
+        android:title="Framboise" />
+    <item
+        android:id="@+id/prune"
+        android:title="Prune"/>
+    <item
+        android:id="@+id/kiwi"
+        android:title="Kiwi"/>
+    <item
+        android:id="@+id/orange"
+        android:title="Orange" />
+    <item
+        android:id="@+id/raisin"
+        android:title="Raisin" />
+
+
+</menu>
