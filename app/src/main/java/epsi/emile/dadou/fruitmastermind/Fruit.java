@@ -8,6 +8,7 @@ public class Fruit {
     private Boolean hasSeeds;
     private Boolean peelable;
 
+
     public Fruit(enumFruits fruit) {
         this.name = fruit.toString();
         switch (name) {
@@ -22,17 +23,7 @@ public class Fruit {
         }
     }
 
-    public List<Fruit> allFruitsListInit() {
-        List<Fruit> fruits = new ArrayList<Fruit>();
-        fruits.add(new Fruit(enumFruits.BANANE));
-        fruits.add(new Fruit(enumFruits.CITRON));
-        fruits.add(new Fruit(enumFruits.FRAISE));
-        fruits.add(new Fruit(enumFruits.FRAMBOISE));
-        fruits.add(new Fruit(enumFruits.KIWI));
-        fruits.add(new Fruit(enumFruits.ORANGE));
-        fruits.add(new Fruit(enumFruits.PRUNE));
-        fruits.add(new Fruit(enumFruits.RAISIN));
 
-        return fruits;
-    }
+
+
 }
