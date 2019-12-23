@@ -1,7 +1,10 @@
 package epsi.emile.dadou.fruitmastermind;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,12 +15,22 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import static epsi.emile.dadou.fruitmastermind.R.drawable.banane;
+import static epsi.emile.dadou.fruitmastermind.R.drawable.citron;
+import static epsi.emile.dadou.fruitmastermind.R.drawable.fraise;
+import static epsi.emile.dadou.fruitmastermind.R.drawable.framboise;
+import static epsi.emile.dadou.fruitmastermind.R.drawable.kiwi;
+import static epsi.emile.dadou.fruitmastermind.R.drawable.orange;
+import static epsi.emile.dadou.fruitmastermind.R.drawable.prune;
+import static epsi.emile.dadou.fruitmastermind.R.drawable.raisin;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnChoice1;
     Button btnChoice2;
     Button btnChoice3;
     Button btnChoice4;
+
     private Button fruit1;
     private int randNum;
 
@@ -45,8 +58,42 @@ public class MainActivity extends AppCompatActivity {
                 PopupMenu popup = new PopupMenu(MainActivity.this, btnChoice1);
                 popup.getMenuInflater().inflate(R.menu.menu_choice_fruit, popup.getMenu());
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                     public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(MainActivity.this,"You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                        switch (item.getTitle().toString()){
+                            case "Banane":
+                                btnChoice1.setBackgroundResource(banane);
+                                btnChoice1.setText("");
+                                break;
+                            case "Citron":
+                                btnChoice1.setBackgroundResource(citron);
+                                btnChoice1.setText("");
+                                break;
+                            case "Fraise":
+                                btnChoice1.setBackgroundResource(fraise);
+                                btnChoice1.setText("");
+                            case "Framboise":
+                                btnChoice1.setBackgroundResource(framboise);
+                                btnChoice1.setText("");
+                                break;
+                            case "Kiwi":
+                                btnChoice1.setBackgroundResource(kiwi);
+                                btnChoice1.setText("");
+                                break;
+                            case "Orange":
+                                btnChoice1.setBackgroundResource(orange);
+                                btnChoice1.setText("");
+                            case "Prune":
+                                btnChoice1.setBackgroundResource(prune);
+                                btnChoice1.setText("");
+                                break;
+                            case "Raisin":
+                                btnChoice1.setBackgroundResource(raisin);
+                                btnChoice1.setText("");
+                                break;
+                            default:
+                                break;
+                        }
                         return true;
                     }
                 });
@@ -63,7 +110,40 @@ public class MainActivity extends AppCompatActivity {
                 popup.getMenuInflater().inflate(R.menu.menu_choice_fruit, popup.getMenu());
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(MainActivity.this,"You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                        switch (item.getTitle().toString()){
+                            case "Banane":
+                                btnChoice2.setBackgroundResource(banane);
+                                btnChoice2.setText("");
+                                break;
+                            case "Citron":
+                                btnChoice2.setBackgroundResource(citron);
+                                btnChoice2.setText("");
+                                break;
+                            case "Fraise":
+                                btnChoice2.setBackgroundResource(fraise);
+                                btnChoice2.setText("");
+                            case "Framboise":
+                                btnChoice2.setBackgroundResource(framboise);
+                                btnChoice2.setText("");
+                                break;
+                            case "Kiwi":
+                                btnChoice2.setBackgroundResource(kiwi);
+                                btnChoice2.setText("");
+                                break;
+                            case "Orange":
+                                btnChoice2.setBackgroundResource(orange);
+                                btnChoice2.setText("");
+                            case "Prune":
+                                btnChoice2.setBackgroundResource(prune);
+                                btnChoice2.setText("");
+                                break;
+                            case "Raisin":
+                                btnChoice2.setBackgroundResource(raisin);
+                                btnChoice2.setText("");
+                                break;
+                            default:
+                                break;
+                        }
                         return true;
                     }
                 });
@@ -80,7 +160,40 @@ public class MainActivity extends AppCompatActivity {
                 popup.getMenuInflater().inflate(R.menu.menu_choice_fruit, popup.getMenu());
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(MainActivity.this,"You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                        switch (item.getTitle().toString()){
+                            case "Banane":
+                                btnChoice3.setBackgroundResource(banane);
+                                btnChoice3.setText("");
+                                break;
+                            case "Citron":
+                                btnChoice3.setBackgroundResource(citron);
+                                btnChoice3.setText("");
+                                break;
+                            case "Fraise":
+                                btnChoice3.setBackgroundResource(fraise);
+                                btnChoice3.setText("");
+                            case "Framboise":
+                                btnChoice3.setBackgroundResource(framboise);
+                                btnChoice3.setText("");
+                                break;
+                            case "Kiwi":
+                                btnChoice3.setBackgroundResource(kiwi);
+                                btnChoice3.setText("");
+                                break;
+                            case "Orange":
+                                btnChoice3.setBackgroundResource(orange);
+                                btnChoice3.setText("");
+                            case "Prune":
+                                btnChoice3.setBackgroundResource(prune);
+                                btnChoice3.setText("");
+                                break;
+                            case "Raisin":
+                                btnChoice3.setBackgroundResource(raisin);
+                                btnChoice3.setText("");
+                                break;
+                            default:
+                                break;
+                        }
                         return true;
                     }
                 });
@@ -97,7 +210,40 @@ public class MainActivity extends AppCompatActivity {
                 popup.getMenuInflater().inflate(R.menu.menu_choice_fruit, popup.getMenu());
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(MainActivity.this,"You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                        switch (item.getTitle().toString()){
+                            case "Banane":
+                                btnChoice4.setBackgroundResource(banane);
+                                btnChoice4.setText("");
+                                break;
+                            case "Citron":
+                                btnChoice4.setBackgroundResource(citron);
+                                btnChoice4.setText("");
+                                break;
+                            case "Fraise":
+                                btnChoice4.setBackgroundResource(fraise);
+                                btnChoice4.setText("");
+                            case "Framboise":
+                                btnChoice4.setBackgroundResource(framboise);
+                                btnChoice4.setText("");
+                                break;
+                            case "Kiwi":
+                                btnChoice4.setBackgroundResource(kiwi);
+                                btnChoice4.setText("");
+                                break;
+                            case "Orange":
+                                btnChoice4.setBackgroundResource(orange);
+                                btnChoice4.setText("");
+                            case "Prune":
+                                btnChoice4.setBackgroundResource(prune);
+                                btnChoice4.setText("");
+                                break;
+                            case "Raisin":
+                                btnChoice4.setBackgroundResource(raisin);
+                                btnChoice4.setText("");
+                                break;
+                            default:
+                                break;
+                        }
                         return true;
                     }
                 });
