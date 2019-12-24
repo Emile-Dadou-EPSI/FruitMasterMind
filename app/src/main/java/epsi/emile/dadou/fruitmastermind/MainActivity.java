@@ -13,7 +13,11 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static epsi.emile.dadou.fruitmastermind.R.drawable.banane;
 import static epsi.emile.dadou.fruitmastermind.R.drawable.citron;
@@ -301,6 +305,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Add verification if the guess list is full (contains 4 fruits and there is no double items)
+                Set<Fruit> freq = new HashSet<>(userGuessList);
+                for (Fruit fr : freq) {
+                    if(Collections.frequency(userGuessList, fr) > 1) {
+                        String frequency = "" + Collections.frequency(userGuessList, fr);
+                        String freque = "Test 0 " + frequency;
+                        Toast.makeText(MainActivity.this, freque,Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        String frequency = "" + Collections.frequency(userGuessList, fr);
+                        String freque = "test 1 " + frequency;
+                        Toast.makeText(MainActivity.this, freque,Toast.LENGTH_SHORT).show();
+                    }
+                }
                 // and then submit the list to verification and then inflate the list of tries
             }
         });
