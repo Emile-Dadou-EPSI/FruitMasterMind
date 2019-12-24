@@ -30,26 +30,30 @@ public class MainActivity extends AppCompatActivity {
     Button btnChoice2;
     Button btnChoice3;
     Button btnChoice4;
+    Button validateButton;
 
     private Button fruit1;
     private int randNum;
+    private List<Fruit> userGuessList = new ArrayList<Fruit>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fruit1 = findViewById(R.id.btnChoice1);
+        // Remove it's just a test
+        /*fruit1 = findViewById(R.id.btnChoice1);
         fruit1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                  Toast.makeText(MainActivity.this, "Banane",Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
         btnChoice1 = (Button) findViewById(R.id.btnChoice1);
         btnChoice2 = (Button) findViewById(R.id.btnChoice2);
         btnChoice3 =(Button) findViewById(R.id.btnChoice3);
         btnChoice4=(Button) findViewById(R.id.btnChoice4);
+        validateButton = (Button) findViewById(R.id.validateButton);
 
         btnChoice1.setOnClickListener(new View.OnClickListener() {
 
@@ -64,34 +68,42 @@ public class MainActivity extends AppCompatActivity {
                             case "Banane":
                                 btnChoice1.setBackgroundResource(banane);
                                 btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.BANANE));
                                 break;
                             case "Citron":
                                 btnChoice1.setBackgroundResource(citron);
                                 btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.CITRON));
                                 break;
                             case "Fraise":
                                 btnChoice1.setBackgroundResource(fraise);
                                 btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.FRAISE));
                                 break;
                             case "Framboise":
                                 btnChoice1.setBackgroundResource(framboise);
                                 btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.FRAMBOISE));
                                 break;
                             case "Kiwi":
                                 btnChoice1.setBackgroundResource(kiwi);
                                 btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.KIWI));
                                 break;
                             case "Orange":
                                 btnChoice1.setBackgroundResource(orange);
                                 btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.ORANGE));
                                 break;
                             case "Prune":
                                 btnChoice1.setBackgroundResource(prune);
                                 btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.PRUNE));
                                 break;
                             case "Raisin":
                                 btnChoice1.setBackgroundResource(raisin);
                                 btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.RAISIN));
                                 break;
                             default:
                                 break;
@@ -116,34 +128,42 @@ public class MainActivity extends AppCompatActivity {
                             case "Banane":
                                 btnChoice2.setBackgroundResource(banane);
                                 btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.BANANE));
                                 break;
                             case "Citron":
                                 btnChoice2.setBackgroundResource(citron);
                                 btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.CITRON));
                                 break;
                             case "Fraise":
                                 btnChoice2.setBackgroundResource(fraise);
                                 btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.FRAISE));
                                 break;
                             case "Framboise":
                                 btnChoice2.setBackgroundResource(framboise);
                                 btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.FRAMBOISE));
                                 break;
                             case "Kiwi":
                                 btnChoice2.setBackgroundResource(kiwi);
                                 btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.KIWI));
                                 break;
                             case "Orange":
                                 btnChoice2.setBackgroundResource(orange);
                                 btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.ORANGE));
                                 break;
                             case "Prune":
                                 btnChoice2.setBackgroundResource(prune);
                                 btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.PRUNE));
                                 break;
                             case "Raisin":
                                 btnChoice2.setBackgroundResource(raisin);
                                 btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.RAISIN));
                                 break;
                             default:
                                 break;
@@ -168,34 +188,42 @@ public class MainActivity extends AppCompatActivity {
                             case "Banane":
                                 btnChoice3.setBackgroundResource(banane);
                                 btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.BANANE));
                                 break;
                             case "Citron":
                                 btnChoice3.setBackgroundResource(citron);
                                 btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.CITRON));
                                 break;
                             case "Fraise":
                                 btnChoice3.setBackgroundResource(fraise);
                                 btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.FRAISE));
                                 break;
                             case "Framboise":
                                 btnChoice3.setBackgroundResource(framboise);
                                 btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.FRAMBOISE));
                                 break;
                             case "Kiwi":
                                 btnChoice3.setBackgroundResource(kiwi);
                                 btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.KIWI));
                                 break;
                             case "Orange":
                                 btnChoice3.setBackgroundResource(orange);
                                 btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.ORANGE));
                                 break;
                             case "Prune":
                                 btnChoice3.setBackgroundResource(prune);
                                 btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.PRUNE));
                                 break;
                             case "Raisin":
                                 btnChoice3.setBackgroundResource(raisin);
                                 btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.RAISIN));
                                 break;
                             default:
                                 break;
@@ -220,34 +248,42 @@ public class MainActivity extends AppCompatActivity {
                             case "Banane":
                                 btnChoice4.setBackgroundResource(banane);
                                 btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.BANANE));
                                 break;
                             case "Citron":
                                 btnChoice4.setBackgroundResource(citron);
                                 btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.CITRON));
                                 break;
                             case "Fraise":
                                 btnChoice4.setBackgroundResource(fraise);
                                 btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.FRAISE));
                                 break;
                             case "Framboise":
                                 btnChoice4.setBackgroundResource(framboise);
                                 btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.FRAMBOISE));
                                 break;
                             case "Kiwi":
                                 btnChoice4.setBackgroundResource(kiwi);
                                 btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.KIWI));
                                 break;
                             case "Orange":
                                 btnChoice4.setBackgroundResource(orange);
                                 btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.ORANGE));
                                 break;
                             case "Prune":
                                 btnChoice4.setBackgroundResource(prune);
                                 btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.PRUNE));
                                 break;
                             case "Raisin":
                                 btnChoice4.setBackgroundResource(raisin);
                                 btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.RAISIN));
                                 break;
                             default:
                                 break;
@@ -257,6 +293,15 @@ public class MainActivity extends AppCompatActivity {
                 });
 
                 popup.show();
+            }
+        });
+
+        // Add listener of the validate button
+        validateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Add verification if the guess list is full (contains 4 fruits and there is no double items)
+                // and then submit the list to verification and then inflate the list of tries
             }
         });
     }
