@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                             case "Fraise":
                                 btnChoice1.setBackgroundResource(fraise);
                                 btnChoice1.setText("");
+                                break;
                             case "Framboise":
                                 btnChoice1.setBackgroundResource(framboise);
                                 btnChoice1.setText("");
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                             case "Orange":
                                 btnChoice1.setBackgroundResource(orange);
                                 btnChoice1.setText("");
+                                break;
                             case "Prune":
                                 btnChoice1.setBackgroundResource(prune);
                                 btnChoice1.setText("");
@@ -122,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
                             case "Fraise":
                                 btnChoice2.setBackgroundResource(fraise);
                                 btnChoice2.setText("");
+                                break;
                             case "Framboise":
                                 btnChoice2.setBackgroundResource(framboise);
                                 btnChoice2.setText("");
@@ -133,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
                             case "Orange":
                                 btnChoice2.setBackgroundResource(orange);
                                 btnChoice2.setText("");
+                                break;
                             case "Prune":
                                 btnChoice2.setBackgroundResource(prune);
                                 btnChoice2.setText("");
@@ -172,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
                             case "Fraise":
                                 btnChoice3.setBackgroundResource(fraise);
                                 btnChoice3.setText("");
+                                break;
                             case "Framboise":
                                 btnChoice3.setBackgroundResource(framboise);
                                 btnChoice3.setText("");
@@ -183,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
                             case "Orange":
                                 btnChoice3.setBackgroundResource(orange);
                                 btnChoice3.setText("");
+                                break;
                             case "Prune":
                                 btnChoice3.setBackgroundResource(prune);
                                 btnChoice3.setText("");
@@ -222,6 +228,7 @@ public class MainActivity extends AppCompatActivity {
                             case "Fraise":
                                 btnChoice4.setBackgroundResource(fraise);
                                 btnChoice4.setText("");
+                                break;
                             case "Framboise":
                                 btnChoice4.setBackgroundResource(framboise);
                                 btnChoice4.setText("");
@@ -233,6 +240,7 @@ public class MainActivity extends AppCompatActivity {
                             case "Orange":
                                 btnChoice4.setBackgroundResource(orange);
                                 btnChoice4.setText("");
+                                break;
                             case "Prune":
                                 btnChoice4.setBackgroundResource(prune);
                                 btnChoice4.setText("");
