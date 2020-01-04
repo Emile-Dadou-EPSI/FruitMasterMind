@@ -44,14 +44,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Remove it's just a test
-        /*fruit1 = findViewById(R.id.btnChoice1);
-        fruit1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                 Toast.makeText(MainActivity.this, "Banane",Toast.LENGTH_SHORT).show();
-            }
-        });*/
+
 
         btnChoice1 = (Button) findViewById(R.id.btnChoice1);
         btnChoice2 = (Button) findViewById(R.id.btnChoice2);
@@ -301,6 +294,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Add listener of the validate button
+        // useless
+        // Fonction de vérification de doublons
         validateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -323,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
+// Génération d'une liste contenenant tout les fruits
     public List<Fruit> allFruitsListInit() {
         List<Fruit> fruits = new ArrayList<Fruit>();
         fruits.add(new Fruit(enumFruits.BANANE));
@@ -338,14 +333,18 @@ public class MainActivity extends AppCompatActivity {
         return fruits;
     }
 
+    // génération de la liste à trouver
     public List<Fruit> initGameList() {
         List<Fruit> fruitsToFind = new ArrayList<Fruit>();
         List<Integer> listNum = new ArrayList<Integer>();
         for (int i = 0; i < 4; i++) {
             randNum = (int) (Math.random() * 9);
-            if (listNum.contains(randNum)) {
+            // Vérifie si le nombre généré est contenu dans la liste (donc si le fruit est déjà présent)
+            // et génère un nouveau numéro
+            while (listNum.contains(randNum)) {
                 randNum = (int) (Math.random() * 9);
             }
+            // en fonction du nombre ajoute le fruit correspondant à la liste à trouver
             switch (randNum) {
                 case 0 : fruitsToFind.add(new Fruit(enumFruits.ORANGE)); listNum.add(randNum); break;
                 case 1 : fruitsToFind.add(new Fruit(enumFruits.BANANE)); listNum.add(randNum); break;
@@ -360,12 +359,15 @@ public class MainActivity extends AppCompatActivity {
         return fruitsToFind;
     }
 
+    // Vérification de victoire si les deux listes sont égales
+    // useless
     private void checkVictoryConditions(List<Fruit> listToGuess, List<Fruit> userGuessList) {
         if (listToGuess.equals(userGuessList)) {
             Toast.makeText(MainActivity.this, "Yay you're the master fruiter",Toast.LENGTH_SHORT).show();
         }
     }
 
+    //
     private void initGame() {
 
     }
