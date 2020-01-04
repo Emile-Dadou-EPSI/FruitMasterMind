@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                // Création d'un nouveau menu popup lors d'un click sur le bouton
                 PopupMenu popup = new PopupMenu(MainActivity.this, btnChoice1);
                 popup.getMenuInflater().inflate(R.menu.menu_choice_fruit, popup.getMenu());
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -63,8 +64,10 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getTitle().toString()){
                             case "Banane":
+                                // changement de background du bouton
                                 btnChoice1.setBackgroundResource(banane);
                                 btnChoice1.setText("");
+                                // add le fruit à la liste de l'utilisateur
                                 userGuessList.add(0, new Fruit(enumFruits.BANANE));
                                 break;
                             case "Citron":
