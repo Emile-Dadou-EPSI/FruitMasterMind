@@ -8,7 +8,6 @@ public class Fruit {
     private Boolean hasSeeds;
     private Boolean peelable;
 
-
     public Fruit(enumFruits fruit) {
         this.name = fruit.toString();
         switch (name) {
@@ -22,8 +21,5 @@ public class Fruit {
             case "CITRON" : this.hasSeeds = true; this.peelable = true;
         }
     }
-
-
-
 
 }

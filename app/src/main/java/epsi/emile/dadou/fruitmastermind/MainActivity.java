@@ -1,29 +1,328 @@
 package epsi.emile.dadou.fruitmastermind;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.Toast;
-import epsi.emile.dadou.fruitmastermind.Fruit;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import static epsi.emile.dadou.fruitmastermind.R.drawable.banane;
+import static epsi.emile.dadou.fruitmastermind.R.drawable.citron;
+import static epsi.emile.dadou.fruitmastermind.R.drawable.fraise;
+import static epsi.emile.dadou.fruitmastermind.R.drawable.framboise;
+import static epsi.emile.dadou.fruitmastermind.R.drawable.kiwi;
+import static epsi.emile.dadou.fruitmastermind.R.drawable.orange;
+import static epsi.emile.dadou.fruitmastermind.R.drawable.prune;
+import static epsi.emile.dadou.fruitmastermind.R.drawable.raisin;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button btnChoice1;
+    Button btnChoice2;
+    Button btnChoice3;
+    Button btnChoice4;
+    Button validateButton;
+
+    private Button fruit1;
     private int randNum;
+    private List<Fruit> userGuessList = new ArrayList<Fruit>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        List<Fruit> fruitsToFind = new ArrayList<Fruit>();
-        List<Fruit> allFruits = new ArrayList<Fruit>();
-        fruitsToFind = initGameList();
-        allFruits = allFruitsListInit();
+        // Remove it's just a test
+        /*fruit1 = findViewById(R.id.btnChoice1);
+        fruit1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 Toast.makeText(MainActivity.this, "Banane",Toast.LENGTH_SHORT).show();
+            }
+        });*/
+
+        btnChoice1 = (Button) findViewById(R.id.btnChoice1);
+        btnChoice2 = (Button) findViewById(R.id.btnChoice2);
+        btnChoice3 =(Button) findViewById(R.id.btnChoice3);
+        btnChoice4=(Button) findViewById(R.id.btnChoice4);
+        validateButton = (Button) findViewById(R.id.validateButton);
+
+        btnChoice1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                PopupMenu popup = new PopupMenu(MainActivity.this, btnChoice1);
+                popup.getMenuInflater().inflate(R.menu.menu_choice_fruit, popup.getMenu());
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getTitle().toString()){
+                            case "Banane":
+                                btnChoice1.setBackgroundResource(banane);
+                                btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.BANANE));
+                                break;
+                            case "Citron":
+                                btnChoice1.setBackgroundResource(citron);
+                                btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.CITRON));
+                                break;
+                            case "Fraise":
+                                btnChoice1.setBackgroundResource(fraise);
+                                btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.FRAISE));
+                                break;
+                            case "Framboise":
+                                btnChoice1.setBackgroundResource(framboise);
+                                btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.FRAMBOISE));
+                                break;
+                            case "Kiwi":
+                                btnChoice1.setBackgroundResource(kiwi);
+                                btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.KIWI));
+                                break;
+                            case "Orange":
+                                btnChoice1.setBackgroundResource(orange);
+                                btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.ORANGE));
+                                break;
+                            case "Prune":
+                                btnChoice1.setBackgroundResource(prune);
+                                btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.PRUNE));
+                                break;
+                            case "Raisin":
+                                btnChoice1.setBackgroundResource(raisin);
+                                btnChoice1.setText("");
+                                userGuessList.add(0, new Fruit(enumFruits.RAISIN));
+                                break;
+                            default:
+                                break;
+                        }
+                        return true;
+                    }
+                });
+
+                popup.show();
+            }
+        });
+
+        btnChoice2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                PopupMenu popup = new PopupMenu(MainActivity.this, btnChoice2);
+                popup.getMenuInflater().inflate(R.menu.menu_choice_fruit, popup.getMenu());
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getTitle().toString()){
+                            case "Banane":
+                                btnChoice2.setBackgroundResource(banane);
+                                btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.BANANE));
+                                break;
+                            case "Citron":
+                                btnChoice2.setBackgroundResource(citron);
+                                btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.CITRON));
+                                break;
+                            case "Fraise":
+                                btnChoice2.setBackgroundResource(fraise);
+                                btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.FRAISE));
+                                break;
+                            case "Framboise":
+                                btnChoice2.setBackgroundResource(framboise);
+                                btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.FRAMBOISE));
+                                break;
+                            case "Kiwi":
+                                btnChoice2.setBackgroundResource(kiwi);
+                                btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.KIWI));
+                                break;
+                            case "Orange":
+                                btnChoice2.setBackgroundResource(orange);
+                                btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.ORANGE));
+                                break;
+                            case "Prune":
+                                btnChoice2.setBackgroundResource(prune);
+                                btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.PRUNE));
+                                break;
+                            case "Raisin":
+                                btnChoice2.setBackgroundResource(raisin);
+                                btnChoice2.setText("");
+                                userGuessList.add(1, new Fruit(enumFruits.RAISIN));
+                                break;
+                            default:
+                                break;
+                        }
+                        return true;
+                    }
+                });
+
+                popup.show();
+            }
+        });
+
+        btnChoice3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                PopupMenu popup = new PopupMenu(MainActivity.this, btnChoice3);
+                popup.getMenuInflater().inflate(R.menu.menu_choice_fruit, popup.getMenu());
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getTitle().toString()){
+                            case "Banane":
+                                btnChoice3.setBackgroundResource(banane);
+                                btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.BANANE));
+                                break;
+                            case "Citron":
+                                btnChoice3.setBackgroundResource(citron);
+                                btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.CITRON));
+                                break;
+                            case "Fraise":
+                                btnChoice3.setBackgroundResource(fraise);
+                                btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.FRAISE));
+                                break;
+                            case "Framboise":
+                                btnChoice3.setBackgroundResource(framboise);
+                                btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.FRAMBOISE));
+                                break;
+                            case "Kiwi":
+                                btnChoice3.setBackgroundResource(kiwi);
+                                btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.KIWI));
+                                break;
+                            case "Orange":
+                                btnChoice3.setBackgroundResource(orange);
+                                btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.ORANGE));
+                                break;
+                            case "Prune":
+                                btnChoice3.setBackgroundResource(prune);
+                                btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.PRUNE));
+                                break;
+                            case "Raisin":
+                                btnChoice3.setBackgroundResource(raisin);
+                                btnChoice3.setText("");
+                                userGuessList.add(2, new Fruit(enumFruits.RAISIN));
+                                break;
+                            default:
+                                break;
+                        }
+                        return true;
+                    }
+                });
+
+                popup.show();
+            }
+        });
+
+        btnChoice4.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                PopupMenu popup = new PopupMenu(MainActivity.this, btnChoice4);
+                popup.getMenuInflater().inflate(R.menu.menu_choice_fruit, popup.getMenu());
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getTitle().toString()){
+                            case "Banane":
+                                btnChoice4.setBackgroundResource(banane);
+                                btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.BANANE));
+                                break;
+                            case "Citron":
+                                btnChoice4.setBackgroundResource(citron);
+                                btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.CITRON));
+                                break;
+                            case "Fraise":
+                                btnChoice4.setBackgroundResource(fraise);
+                                btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.FRAISE));
+                                break;
+                            case "Framboise":
+                                btnChoice4.setBackgroundResource(framboise);
+                                btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.FRAMBOISE));
+                                break;
+                            case "Kiwi":
+                                btnChoice4.setBackgroundResource(kiwi);
+                                btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.KIWI));
+                                break;
+                            case "Orange":
+                                btnChoice4.setBackgroundResource(orange);
+                                btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.ORANGE));
+                                break;
+                            case "Prune":
+                                btnChoice4.setBackgroundResource(prune);
+                                btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.PRUNE));
+                                break;
+                            case "Raisin":
+                                btnChoice4.setBackgroundResource(raisin);
+                                btnChoice4.setText("");
+                                userGuessList.add(3, new Fruit(enumFruits.RAISIN));
+                                break;
+                            default:
+                                break;
+                        }
+                        return true;
+                    }
+                });
+
+                popup.show();
+            }
+        });
+
+        // Add listener of the validate button
+        validateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Add verification if the guess list is full (contains 4 fruits and there is no double items)
+                Set<Fruit> freq = new HashSet<>(userGuessList);
+                for (Fruit fr : freq) {
+                    if(Collections.frequency(userGuessList, fr) > 1) {
+                        String frequency = "" + Collections.frequency(userGuessList, fr);
+                        String freque = "Test 0 " + frequency;
+                        Toast.makeText(MainActivity.this, freque,Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        String frequency = "" + Collections.frequency(userGuessList, fr);
+                        String freque = "test 1 " + frequency;
+                        Toast.makeText(MainActivity.this, freque,Toast.LENGTH_SHORT).show();
+                    }
+                }
+                // and then submit the list to verification and then inflate the list of tries
+            }
+        });
     }
+
 
     public List<Fruit> allFruitsListInit() {
         List<Fruit> fruits = new ArrayList<Fruit>();
