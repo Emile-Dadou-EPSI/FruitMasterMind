@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private int Image2;
     private int Image3;
     private int Image4;
+
+    private ListView histo = (ListView) findViewById(R.id.list);
 
     private Button fruit1;
     private int randNum;
@@ -208,41 +211,49 @@ public class MainActivity extends AppCompatActivity {
                         switch (item.getTitle().toString()){
                             case "Banane":
                                 btnChoice3.setBackgroundResource(banane);
+                                Image3 = banane;
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.BANANE));
                                 break;
                             case "Citron":
                                 btnChoice3.setBackgroundResource(citron);
+                                Image3 = citron;
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.CITRON));
                                 break;
                             case "Fraise":
                                 btnChoice3.setBackgroundResource(fraise);
+                                Image3 = fraise;
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.FRAISE));
                                 break;
                             case "Framboise":
                                 btnChoice3.setBackgroundResource(framboise);
+                                Image3 = framboise;
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.FRAMBOISE));
                                 break;
                             case "Kiwi":
                                 btnChoice3.setBackgroundResource(kiwi);
+                                Image3 = kiwi;
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.KIWI));
                                 break;
                             case "Orange":
                                 btnChoice3.setBackgroundResource(orange);
+                                Image3 = orange;
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.ORANGE));
                                 break;
                             case "Prune":
                                 btnChoice3.setBackgroundResource(prune);
+                                Image3 = prune;
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.PRUNE));
                                 break;
                             case "Raisin":
                                 btnChoice3.setBackgroundResource(raisin);
+                                Image3 = raisin;
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.RAISIN));
                                 break;
@@ -332,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Add verification if the guess list is full (contains 4 fruits and there is no double items)
-                Set<Fruit> freq = new HashSet<>(userGuessList);
+                /*Set<Fruit> freq = new HashSet<>(userGuessList);
                 for (Fruit fr : freq) {
                     if(Collections.frequency(userGuessList, fr) > 1) {
                         String frequency = "" + Collections.frequency(userGuessList, fr);
@@ -344,8 +355,9 @@ public class MainActivity extends AppCompatActivity {
                         String freque = "test 1 " + frequency;
                         Toast.makeText(MainActivity.this, freque,Toast.LENGTH_SHORT).show();
                     }
-                }
+                }*/
                 // and then submit the list to verification and then inflate the list of tries
+
             }
         });
     }
@@ -404,7 +416,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void createNewListElement() {
-
+    private List<Integer> createNewListElement(int Image1, int Image2, int Image3, int Image4) {
+        List<Integer> listImages = new ArrayList<Integer>();
+        listImages.add(Image1);
+        listImages.add(Image2);
+        listImages.add(Image3);
+        listImages.add(Image4);
+        return listImages;
     }
 }
