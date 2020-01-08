@@ -36,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
     Button btnChoice4;
     Button validateButton;
 
+    private int Image1;
+    private int Image2;
+    private int Image3;
+    private int Image4;
+
     private Button fruit1;
     private int randNum;
     private List<Fruit> userGuessList = new ArrayList<Fruit>();
@@ -66,42 +71,50 @@ public class MainActivity extends AppCompatActivity {
                             case "Banane":
                                 // changement de background du bouton
                                 btnChoice1.setBackgroundResource(banane);
+                                Image1 = banane;
                                 btnChoice1.setText("");
                                 // add le fruit à la liste de l'utilisateur
                                 userGuessList.add(0, new Fruit(enumFruits.BANANE));
                                 break;
                             case "Citron":
                                 btnChoice1.setBackgroundResource(citron);
+                                Image1 = citron;
                                 btnChoice1.setText("");
                                 userGuessList.add(0, new Fruit(enumFruits.CITRON));
                                 break;
                             case "Fraise":
                                 btnChoice1.setBackgroundResource(fraise);
+                                Image1 = fraise;
                                 btnChoice1.setText("");
                                 userGuessList.add(0, new Fruit(enumFruits.FRAISE));
                                 break;
                             case "Framboise":
                                 btnChoice1.setBackgroundResource(framboise);
+                                Image1 = framboise;
                                 btnChoice1.setText("");
                                 userGuessList.add(0, new Fruit(enumFruits.FRAMBOISE));
                                 break;
                             case "Kiwi":
                                 btnChoice1.setBackgroundResource(kiwi);
+                                Image1 = kiwi;
                                 btnChoice1.setText("");
                                 userGuessList.add(0, new Fruit(enumFruits.KIWI));
                                 break;
                             case "Orange":
                                 btnChoice1.setBackgroundResource(orange);
+                                Image1 = orange;
                                 btnChoice1.setText("");
                                 userGuessList.add(0, new Fruit(enumFruits.ORANGE));
                                 break;
                             case "Prune":
                                 btnChoice1.setBackgroundResource(prune);
+                                Image1 = prune;
                                 btnChoice1.setText("");
                                 userGuessList.add(0, new Fruit(enumFruits.PRUNE));
                                 break;
                             case "Raisin":
                                 btnChoice1.setBackgroundResource(raisin);
+                                Image1 = raisin;
                                 btnChoice1.setText("");
                                 userGuessList.add(0, new Fruit(enumFruits.RAISIN));
                                 break;
@@ -372,6 +385,10 @@ public class MainActivity extends AppCompatActivity {
 
     //
     private void initGame() {
+
+    }
+
+    private void createNewListElement() {
 
     }
 }
