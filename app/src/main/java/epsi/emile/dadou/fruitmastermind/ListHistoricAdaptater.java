@@ -1,12 +1,17 @@
 package epsi.emile.dadou.fruitmastermind;
 
+import android.content.Context;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class ListHistoricAdaptater extends ArrayAdapter<ListHistoric> {
 
-
+    public ListHistoricAdaptater(Context context, List<ListHistoric> tweets) {
+        super(context, 0, tweets);
+    }
 
     public class ListHistoricHolder {
         public ImageView image1;
