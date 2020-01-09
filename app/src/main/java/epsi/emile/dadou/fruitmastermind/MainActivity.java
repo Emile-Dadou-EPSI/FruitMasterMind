@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView Image1;
     private ImageView Image2;
-    private int Image3;
-    private int Image4;
+    private ImageView Image3;
+    private ImageView Image4;
 
     private ListView histo = (ListView) findViewById(R.id.list);
 
@@ -213,49 +213,49 @@ public class MainActivity extends AppCompatActivity {
                         switch (item.getTitle().toString()){
                             case "Banane":
                                 btnChoice3.setBackgroundResource(banane);
-                                Image3 = banane;
+                                Image3.setImageDrawable(getResources().getDrawable(banane));
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.BANANE));
                                 break;
                             case "Citron":
                                 btnChoice3.setBackgroundResource(citron);
-                                Image3 = citron;
+                                Image3.setImageDrawable(getResources().getDrawable(citron));
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.CITRON));
                                 break;
                             case "Fraise":
                                 btnChoice3.setBackgroundResource(fraise);
-                                Image3 = fraise;
+                                Image3.setImageDrawable(getResources().getDrawable(fraise));
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.FRAISE));
                                 break;
                             case "Framboise":
                                 btnChoice3.setBackgroundResource(framboise);
-                                Image3 = framboise;
+                                Image3.setImageDrawable(getResources().getDrawable(framboise));
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.FRAMBOISE));
                                 break;
                             case "Kiwi":
                                 btnChoice3.setBackgroundResource(kiwi);
-                                Image3 = kiwi;
+                                Image3.setImageDrawable(getResources().getDrawable(kiwi));
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.KIWI));
                                 break;
                             case "Orange":
                                 btnChoice3.setBackgroundResource(orange);
-                                Image3 = orange;
+                                Image3.setImageDrawable(getResources().getDrawable(orange));
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.ORANGE));
                                 break;
                             case "Prune":
                                 btnChoice3.setBackgroundResource(prune);
-                                Image3 = prune;
+                                Image3.setImageDrawable(getResources().getDrawable(prune));
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.PRUNE));
                                 break;
                             case "Raisin":
                                 btnChoice3.setBackgroundResource(raisin);
-                                Image3 = raisin;
+                                Image3.setImageDrawable(getResources().getDrawable(raisin));
                                 btnChoice3.setText("");
                                 userGuessList.add(2, new Fruit(enumFruits.RAISIN));
                                 break;
@@ -281,49 +281,49 @@ public class MainActivity extends AppCompatActivity {
                         switch (item.getTitle().toString()){
                             case "Banane":
                                 btnChoice4.setBackgroundResource(banane);
-                                Image4= banane;
+                                Image4.setImageDrawable(getResources().getDrawable(banane));
                                 btnChoice4.setText("");
                                 userGuessList.add(3, new Fruit(enumFruits.BANANE));
                                 break;
                             case "Citron":
                                 btnChoice4.setBackgroundResource(citron);
-                                Image4=citron;
+                                Image4.setImageDrawable(getResources().getDrawable(citron));
                                 btnChoice4.setText("");
                                 userGuessList.add(3, new Fruit(enumFruits.CITRON));
                                 break;
                             case "Fraise":
                                 btnChoice4.setBackgroundResource(fraise);
-                                Image4=fraise;
+                                Image4.setImageDrawable(getResources().getDrawable(fraise));
                                 btnChoice4.setText("");
                                 userGuessList.add(3, new Fruit(enumFruits.FRAISE));
                                 break;
                             case "Framboise":
                                 btnChoice4.setBackgroundResource(framboise);
-                                Image4=framboise;
+                                Image4.setImageDrawable(getResources().getDrawable(framboise));
                                 btnChoice4.setText("");
                                 userGuessList.add(3, new Fruit(enumFruits.FRAMBOISE));
                                 break;
                             case "Kiwi":
                                 btnChoice4.setBackgroundResource(kiwi);
-                                Image4=kiwi;
+                                Image4.setImageDrawable(getResources().getDrawable(kiwi));
                                 btnChoice4.setText("");
                                 userGuessList.add(3, new Fruit(enumFruits.KIWI));
                                 break;
                             case "Orange":
                                 btnChoice4.setBackgroundResource(orange);
-                                Image4 =orange;
+                                Image4.setImageDrawable(getResources().getDrawable(orange));
                                 btnChoice4.setText("");
                                 userGuessList.add(3, new Fruit(enumFruits.ORANGE));
                                 break;
                             case "Prune":
                                 btnChoice4.setBackgroundResource(prune);
-                                Image4 = prune;
+                                Image4.setImageDrawable(getResources().getDrawable(prune));
                                 btnChoice4.setText("");
                                 userGuessList.add(3, new Fruit(enumFruits.PRUNE));
                                 break;
                             case "Raisin":
                                 btnChoice4.setBackgroundResource(raisin);
-                                Image4 = raisin;
+                                Image4.setImageDrawable(getResources().getDrawable(raisin));
                                 btnChoice4.setText("");
                                 userGuessList.add(3, new Fruit(enumFruits.RAISIN));
                                 break;
