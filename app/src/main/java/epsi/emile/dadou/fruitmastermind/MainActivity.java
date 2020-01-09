@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private Button validateButton;
 
     private ImageView Image1;
-    private int Image2;
+    private ImageView Image2;
     private int Image3;
     private int Image4;
 
@@ -145,49 +145,49 @@ public class MainActivity extends AppCompatActivity {
                         switch (item.getTitle().toString()){
                             case "Banane":
                                 btnChoice2.setBackgroundResource(banane);
-                                Image2 = banane;
+                                Image2.setImageDrawable(getResources().getDrawable(banane));
                                 btnChoice2.setText("");
                                 userGuessList.add(1, new Fruit(enumFruits.BANANE));
                                 break;
                             case "Citron":
                                 btnChoice2.setBackgroundResource(citron);
-                                Image2 = citron;
+                                Image2.setImageDrawable(getResources().getDrawable(citron));
                                 btnChoice2.setText("");
                                 userGuessList.add(1, new Fruit(enumFruits.CITRON));
                                 break;
                             case "Fraise":
                                 btnChoice2.setBackgroundResource(fraise);
-                                Image2 = fraise;
+                                Image2.setImageDrawable(getResources().getDrawable(fraise));
                                 btnChoice2.setText("");
                                 userGuessList.add(1, new Fruit(enumFruits.FRAISE));
                                 break;
                             case "Framboise":
                                 btnChoice2.setBackgroundResource(framboise);
-                                Image2 = framboise;
+                                Image2.setImageDrawable(getResources().getDrawable(framboise));
                                 btnChoice2.setText("");
                                 userGuessList.add(1, new Fruit(enumFruits.FRAMBOISE));
                                 break;
                             case "Kiwi":
                                 btnChoice2.setBackgroundResource(kiwi);
-                                Image2 = kiwi;
+                                Image2.setImageDrawable(getResources().getDrawable(kiwi));
                                 btnChoice2.setText("");
                                 userGuessList.add(1, new Fruit(enumFruits.KIWI));
                                 break;
                             case "Orange":
                                 btnChoice2.setBackgroundResource(orange);
-                                Image2 = orange;
+                                Image2.setImageDrawable(getResources().getDrawable(orange));
                                 btnChoice2.setText("");
                                 userGuessList.add(1, new Fruit(enumFruits.ORANGE));
                                 break;
                             case "Prune":
                                 btnChoice2.setBackgroundResource(prune);
-                                Image2 = prune;
+                                Image2.setImageDrawable(getResources().getDrawable(prune));
                                 btnChoice2.setText("");
                                 userGuessList.add(1, new Fruit(enumFruits.PRUNE));
                                 break;
                             case "Raisin":
                                 btnChoice2.setBackgroundResource(raisin);
-                                Image2 = raisin;
+                                Image2.setImageDrawable(getResources().getDrawable(raisin));
                                 btnChoice2.setText("");
                                 userGuessList.add(1, new Fruit(enumFruits.RAISIN));
                                 break;
