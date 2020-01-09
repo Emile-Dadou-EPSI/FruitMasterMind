@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -40,12 +41,19 @@ public class MainActivity extends AppCompatActivity {
     private Button btnChoice4;
     private Button validateButton;
 
-    private Drawable Image1;
-    private Drawable Image2;
-    private Drawable Image3;
-    private Drawable Image4;
+    // élément pour la liste :
+    private ImageView Image1;
+    private ImageView Image2;
+    private ImageView Image3;
+    private ImageView Image4;
+    private String indice1;
+    private String indice2;
+    private String indice3;
+    private String indice4;
 
-    private ListView histo = (ListView) findViewById(R.id.list);
+    private ListView list;
+    private ArrayAdapter<String> historicAdapter;
+    private List<String> historic;
 
     private Button fruit1;
     private int randNum;
@@ -282,7 +290,7 @@ public class MainActivity extends AppCompatActivity {
                         switch (item.getTitle().toString()){
                             case "Banane":
                                 btnChoice4.setBackgroundResource(banane);
-                                Image4
+                                Image4.setImageDrawable(getResources().getDrawable(banane));
                                 btnChoice4.setText("");
                                 userGuessList.add(3, new Fruit(enumFruits.BANANE));
                                 break;
@@ -345,8 +353,20 @@ public class MainActivity extends AppCompatActivity {
         validateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+
+                /*String img1 = Image1.getDrawable().toString();
+                String img2 = Image1.getDrawable().toString();
+                String img3 = Image1.getDrawable().toString();
+                String img4 = Image1.getDrawable().toString();
+
+                historic.add(String.valueOf(img1, img2, img3, img4, indice1, indice2, indice3, indice4));
+                historicAdapter.notifyDataSetChanged();
+
                 // Add verification if the guess list is full (contains 4 fruits and there is no double items)
-                /*Set<Fruit> freq = new HashSet<>(userGuessList);
+                Set<Fruit> freq = new HashSet<>(userGuessList);
                 for (Fruit fr : freq) {
                     if(Collections.frequency(userGuessList, fr) > 1) {
                         String frequency = "" + Collections.frequency(userGuessList, fr);
@@ -416,10 +436,13 @@ public class MainActivity extends AppCompatActivity {
 
     //
     private void initGame() {
-
+        historic = new ArrayList<>();
+        historicAdapter= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, historic);
+        list = findViewById(R.id.list);
+        list.setAdapter(historicAdapter);
     }
 
-   private List<ListHistoric> generateList(){
+   /*private List<ListHistoric> generateList(){
         List<ListHistoric> listHistorics = new ArrayList<ListHistoric>();
         listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
         listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
@@ -432,5 +455,7 @@ public class MainActivity extends AppCompatActivity {
         listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
         listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
         return listHistorics;
-   }
+   }*/
+
+
 }

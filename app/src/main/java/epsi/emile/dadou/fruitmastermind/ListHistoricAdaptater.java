@@ -45,15 +45,15 @@ public class ListHistoricAdaptater extends ArrayAdapter<ListHistoric> {
         //getItem(position) va récupérer l'item [position] de la List<ListHistoric> ListHistorics
         ListHistoric listHistoric = getItem(position);
 
-        viewHolder.image1.setImageDrawable(listHistoric.getImage1());
+        /*viewHolder.image1.s(listHistoric.getImage1());
         viewHolder.image2.setImageDrawable(listHistoric.getImage2());
         viewHolder.image3.setImageDrawable(listHistoric.getImage3());
-        viewHolder.image4.setImageDrawable(listHistoric.getImage4());
+        viewHolder.image4.setImageDrawable(listHistoric.getImage4()));
 
         viewHolder.indice1.setText(listHistoric.getIndice1());
         viewHolder.indice2.setText(listHistoric.getIndice2());
         viewHolder.indice3.setText(listHistoric.getIndice3());
-        viewHolder.indice4.setText(listHistoric.getIndice4());
+        viewHolder.indice4.setText(listHistoric.getIndice4());*/
 
         return convertView;
     }
