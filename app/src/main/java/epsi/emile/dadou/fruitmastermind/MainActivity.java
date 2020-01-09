@@ -436,13 +436,13 @@ public class MainActivity extends AppCompatActivity {
 
     //
     private void initGame() {
-        historic = new ArrayList<>();
+        /*historic = new ArrayList<>();
         historicAdapter= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, historic);
         list = findViewById(R.id.list);
-        list.setAdapter(historicAdapter);
+        list.setAdapter(historicAdapter);*/
     }
 
-   /*private List<ListHistoric> generateList(){
+   private List<ListHistoric> generateList(){
         List<ListHistoric> listHistorics = new ArrayList<ListHistoric>();
         listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
         listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
@@ -455,7 +455,7 @@ public class MainActivity extends AppCompatActivity {
         listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
         listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
         return listHistorics;
-   }*/
+   }
 
 
 }
