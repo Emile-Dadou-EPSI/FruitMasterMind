@@ -65,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        list = (ListView) findViewById(R.id.list);
+
+        List<ListHistoric> tweets = generateList();
+
+        ListHistoricAdaptater adapter = new ListHistoricAdaptater(MainActivity.this, tweets);
+        list.setAdapter(adapter);
+
         btnChoice1 = (Button) findViewById(R.id.btnChoice1);
         btnChoice2 = (Button) findViewById(R.id.btnChoice2);
         btnChoice3 =(Button) findViewById(R.id.btnChoice3);
