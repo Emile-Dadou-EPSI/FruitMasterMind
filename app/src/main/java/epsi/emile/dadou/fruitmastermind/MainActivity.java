@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.TypeConverter;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -39,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
     private Button btnChoice4;
     private Button validateButton;
 
-    private ImageView Image1;
-    private ImageView Image2;
-    private ImageView Image3;
-    private ImageView Image4;
+    private Drawable Image1;
+    private Drawable Image2;
+    private Drawable Image3;
+    private Drawable Image4;
 
     private ListView histo = (ListView) findViewById(R.id.list);
 
@@ -281,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
                         switch (item.getTitle().toString()){
                             case "Banane":
                                 btnChoice4.setBackgroundResource(banane);
-                                Image4.setImageDrawable(getResources().getDrawable(banane));
+                                Image4
                                 btnChoice4.setText("");
                                 userGuessList.add(3, new Fruit(enumFruits.BANANE));
                                 break;
@@ -418,12 +419,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private List<Integer> createNewListElement(int Image1, int Image2, int Image3, int Image4) {
-        List<Integer> listImages = new ArrayList<Integer>();
-        listImages.add(Image1);
-        listImages.add(Image2);
-        listImages.add(Image3);
-        listImages.add(Image4);
-        return listImages;
-    }
+   private List<ListHistoric> generateList(){
+        List<ListHistoric> listHistorics = new ArrayList<ListHistoric>();
+        listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
+        listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
+        listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
+        listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
+        listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
+        listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
+        listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
+        listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
+        listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
+        listHistorics.add(new ListHistoric(Image1, Image2, Image3, Image4, "0", "0","0","0"));
+        return listHistorics;
+   }
 }
