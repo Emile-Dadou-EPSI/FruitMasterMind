@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private Button validateButton;
 
     // élément pour la liste :
-    private Integer[] tabFruits;
+    public Integer[] tabFruits;
 
 
     private ListView list;

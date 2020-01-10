@@ -32,7 +32,7 @@ public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdap
             @Override
             public void onItemRangeChanged(int positionStart, int itemCount) {
                 super.onItemRangeChanged(positionStart, itemCount);
-                L.scrollToPosition(L.size() - 1);
+                L.scrollToPosition(m_Histo.size() - 1);
             }
         });
     }
@@ -59,7 +59,10 @@ public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdap
 
     @Override
     public void onBindViewHolder(@NonNull ListHistoricAdaptater.ItemView holder, int position) {
-
+        holder.fruit1.setImageDrawable(m_Histo.get(position).getImageFruit(0));
+        holder.fruit2.setImageDrawable(m_Histo.get(position).getImageFruit(1));
+        holder.fruit3.setImageDrawable(m_Histo.get(position).getImageFruit(3));
+        holder.fruit4.setImageDrawable(m_Histo.get(position).getImageFruit(4));
     }
 
     @Override
@@ -67,7 +70,7 @@ public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdap
         return m_Histo.size();
     }
 
-    private class ItemView extends RecyclerView.ViewHolder{
+    public class ItemView extends RecyclerView.ViewHolder{
 
         public ImageView fruit1;
         public ImageView fruit2;
@@ -76,8 +79,7 @@ public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdap
 
         public ItemView(@NonNull View view) {
             super(view);
-
-            //fruit1 = view.findViewById(R.id.tabFruit[0]);
+            fruit1 = view.findViewById(R.id.);
         }
     }
 }
