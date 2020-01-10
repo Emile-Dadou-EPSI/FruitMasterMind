@@ -35,7 +35,7 @@ import static epsi.emile.dadou.fruitmastermind.R.drawable.raisin;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnChoice1;
+    public Button btnChoice1;
     private Button btnChoice2;
     private Button btnChoice3;
     private Button btnChoice4;
