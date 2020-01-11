@@ -23,11 +23,10 @@ import java.util.List;
 //Attempt to use the Recycler view Unused / Dead code
 public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdaptater.ItemView> {
 
-    private List<ListHistoric> m_Histo;
+    private List<ListHistoric> m_Histo = new ArrayList<ListHistoric>();
 
     // Constructeur
     public ListHistoricAdaptater(final LinearLayoutManager L) {
-        m_Histo = new ArrayList<ListHistoric>();
 
         registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
@@ -62,8 +61,8 @@ public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdap
     public void onBindViewHolder(@NonNull ListHistoricAdaptater.ItemView holder, int position) {
         holder.fruit1.setImageDrawable(m_Histo.get(position).getImageFruit(0));
         holder.fruit2.setImageDrawable(m_Histo.get(position).getImageFruit(1));
-        holder.fruit3.setImageDrawable(m_Histo.get(position).getImageFruit(3));
-        holder.fruit4.setImageDrawable(m_Histo.get(position).getImageFruit(4));
+        holder.fruit3.setImageDrawable(m_Histo.get(position).getImageFruit(2));
+        holder.fruit4.setImageDrawable(m_Histo.get(position).getImageFruit(3));
     }
 
     @Override

@@ -71,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        list = findViewById(R.id.recyclerview);
+
         //Buttons for User Choice
         btnChoice1 = (Button) findViewById(R.id.btnChoice1);
         btnChoice2 = (Button) findViewById(R.id.btnChoice2);
@@ -395,11 +397,12 @@ public class MainActivity extends AppCompatActivity {
         validateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                list = findViewById(R.id.recyclerview);
+
                 Resources res = getResources();
                 adapter.addListHisto(new ListHistoric(res, tabIntFruits));
                 list.setLayoutManager(lm);
                 list.setAdapter(adapter);
+                //list.notify();
             }
         });
     }
