@@ -71,12 +71,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Buttons for User Choice
         btnChoice1 = (Button) findViewById(R.id.btnChoice1);
         btnChoice2 = (Button) findViewById(R.id.btnChoice2);
         btnChoice3 =(Button) findViewById(R.id.btnChoice3);
         btnChoice4=(Button) findViewById(R.id.btnChoice4);
         validateButton = (Button) findViewById(R.id.validateButton);
 
+
+        //Update User Choices
         btnChoice1.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -156,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                 popup.show();
             }
         });
-
+        //Same function as button1
         btnChoice2.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -232,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
                 popup.show();
             }
         });
-
+        //Same as button 1
         btnChoice3.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -308,7 +311,7 @@ public class MainActivity extends AppCompatActivity {
                 popup.show();
             }
         });
-
+        //Same as button 1
         btnChoice4.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -316,6 +319,7 @@ public class MainActivity extends AppCompatActivity {
                 PopupMenu popup = new PopupMenu(MainActivity.this, btnChoice4);
                 popup.getMenuInflater().inflate(R.menu.menu_choice_fruit, popup.getMenu());
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getTitle().toString()){
                             case "Banane":
