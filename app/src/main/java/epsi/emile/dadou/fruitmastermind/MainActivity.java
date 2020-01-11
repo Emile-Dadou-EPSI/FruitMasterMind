@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnChoice4;
     private Button validateButton;
 
+    private int tryNb = 10;
+
     private LinearLayout indices;
     private TextView indicePep;
     private TextView indiceEp;
@@ -334,15 +336,9 @@ public class MainActivity extends AppCompatActivity {
         validateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                setTry(tryNb - 1);
             }
         });
-
-
-
-
-
     }
 
     @Override
@@ -359,10 +355,12 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.indice1:
                 afficherIndice1();
+                useIndice();
                 Toast.makeText(this,item.getTitle(), Toast.LENGTH_LONG).show();
                 break;
             case R.id.indice2:
                 afficherIndice2();
+                useIndice();
                 Toast.makeText(this,item.getTitle(), Toast.LENGTH_LONG).show();
                 break;
 
@@ -388,6 +386,7 @@ public class MainActivity extends AppCompatActivity {
         indPep2.setVisibility(View.VISIBLE);
         indPep3.setVisibility(View.VISIBLE);
         indPep4.setVisibility(View.VISIBLE);
+
     }
 
     public void afficherIndice2(){
@@ -405,6 +404,18 @@ public class MainActivity extends AppCompatActivity {
         indEp2.setVisibility(View.VISIBLE);
         indEp3.setVisibility(View.VISIBLE);
         indEp4.setVisibility(View.VISIBLE);
+
+    }
+
+    // décrémentation d'essai si utilisation d'indice :
+    public void useIndice(){
+        setTry(tryNb - 2);
+    }
+
+    void setTry(int tryVal){
+        tryNb = tryVal;
+        TextView scoreView = findViewById(R.id.triesNb);
+        scoreView.setText(String.valueOf(tryNb));
     }
 
 // Génération d'une liste contenenant tout les fruits
