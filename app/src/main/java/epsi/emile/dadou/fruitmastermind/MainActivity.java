@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     // élément pour la liste :
     public Integer[] tabFruits;
 
+    ImageView image_1;
 
     private ListView list;
     private ArrayAdapter<String> historicAdapter;
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                             case "Banane":
                                 // changement de background du bouton
                                 btnChoice1.setBackgroundResource(banane);
-                                tabFruits[0] = banane;
+                                image_1 = findViewById(R.id.banane);
                                 btnChoice1.setText("");
                                 // add le fruit à la liste de l'utilisateur
                                 userGuessList.add(0, new Fruit(enumFruits.BANANE));
@@ -430,10 +431,10 @@ public class MainActivity extends AppCompatActivity {
 
     //
     private void initGame() {
-        historic = new ArrayList<>();
-        historicAdapter= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, historic);
-        list = findViewById(R.id.list);
-        list.setAdapter(historicAdapter);
+        //historic = new ArrayList<>();
+        //historicAdapter= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, historic);
+        //list = findViewById(R.id.list);
+        //list.setAdapter(historicAdapter);
     }
 
 

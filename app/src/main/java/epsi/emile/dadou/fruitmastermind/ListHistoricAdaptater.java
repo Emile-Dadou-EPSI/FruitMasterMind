@@ -81,7 +81,6 @@ public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdap
         public ItemView(@NonNull View view) {
             super(view);
 
-            fruit1 = view.findViewById(R.id.fruit);
         }
     }
 }
