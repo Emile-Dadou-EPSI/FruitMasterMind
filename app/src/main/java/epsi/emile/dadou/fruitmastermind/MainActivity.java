@@ -78,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
     List<Character> charToInsert = new ArrayList<Character>() ;
 
     private RecyclerView list;
-    private ArrayAdapter<String> historicAdapter;
 
     LinearLayoutManager lm = new LinearLayoutManager(MainActivity.this);
     ListHistoricAdaptater adapter = new ListHistoricAdaptater(lm);
@@ -87,9 +86,6 @@ public class MainActivity extends AppCompatActivity {
     private int randNum;
     private List<Fruit> userGuessList = new ArrayList<Fruit>();
     private List<Fruit> listToFind = new ArrayList<>();
-
-    private List<Fruit> listeTest1 = new ArrayList<>();
-    private List<Fruit> listeTest2 = new ArrayList<>();
 
 
     private LinearLayout indices;
@@ -444,9 +440,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                //Toast.makeText(MainActivity.this, "" + userGuessList.get(0).getName(), Toast.LENGTH_LONG).show();
-                //Toast.makeText(MainActivity.this, userGuessList.get(0).getName() + userGuessList.get(1).getName() + userGuessList.get(2).getName() + userGuessList.get(3).getName(), Toast.LENGTH_LONG).show();
-                //Toast.makeText(MainActivity.this, listToFind.get(0).getName() + listToFind.get(1).getName() + listToFind.get(2).getName() + listToFind.get(3).getName(), Toast.LENGTH_LONG).show();
+
                 Resources res = getResources();
                 charToInsert = checkUserInput(userGuessList, listToFind, MAX_FRUITS);
                 Boolean endGame = checkVictoryConditions(charToInsert);
@@ -460,10 +454,6 @@ public class MainActivity extends AppCompatActivity {
                     Score = Score + COUPS_RESTANTS;
                     NbVictories = NbVictories + 1;
 
-                    //TextView txt1 = findViewById(R.id.textView3);
-                    //txt1.setText("Coucou");
-                    //TextView txt2 = findViewById(R.id.textView5);
-                    //txt2.setText("Coucou2");
                     popupEndGame(endGame);
                     Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_LONG).show();
                 }
@@ -475,10 +465,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Fail", Toast.LENGTH_LONG).show();
                 }
                 Total_Score.setText(String.valueOf(Score));
-                //userGuessList.clear();
-                //charToInsert.clear();
-
-                //list.notify();
             }
         });
     }
@@ -539,10 +525,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Character> checkUserInput(List<Fruit>userInput, List<Fruit>inGameFruits, int MAX_FRUITS){ //call a chaque fois que l'utilisateur click sur valider
         List<Character> result = new ArrayList<Character>();
-        //System.out.println("Taille de la liste user " + userInput.size());
-        //System.out.println("Taille de la liste a trouver " + inGameFruits.size());
-        //Toast.makeText(MainActivity.this, String.valueOf(userInput.size() + " " + String.valueOf(inGameFruits.size())), Toast.LENGTH_LONG).show();
-        //Toast.makeText(MainActivity.this, String.valueOf(userGuessList.size()), Toast.LENGTH_LONG).show();
+
         for(int i = 0; i < MAX_FRUITS; i++){
             char tmpResult = 'O';
             //result.add(i, tmpResult);
@@ -559,7 +542,7 @@ public class MainActivity extends AppCompatActivity {
             result.add(i, tmpResult);
         }
 
-        //Toast.makeText(MainActivity.this, result.get(0) + result.get(1) + result.get(2) + result.get(3), Toast.LENGTH_LONG).show();
+
 
         return result;
     }
