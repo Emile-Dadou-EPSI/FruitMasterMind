@@ -8,14 +8,17 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -33,6 +36,8 @@ import static epsi.emile.dadou.fruitmastermind.R.drawable.kiwi;
 import static epsi.emile.dadou.fruitmastermind.R.drawable.orange;
 import static epsi.emile.dadou.fruitmastermind.R.drawable.prune;
 import static epsi.emile.dadou.fruitmastermind.R.drawable.raisin;
+import static epsi.emile.dadou.fruitmastermind.R.id.indiceEpTxt;
+import static epsi.emile.dadou.fruitmastermind.R.id.indicePepinTxt;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +47,19 @@ public class MainActivity extends AppCompatActivity {
     private Button btnChoice4;
     private Button validateButton;
 
+    private LinearLayout indices;
+    private TextView indicePep;
+    private TextView indiceEp;
+    private LinearLayout indicePepin;
+    private LinearLayout indicesEpluchure;
+    private TextView indPep1;
+    private TextView indPep2;
+    private TextView indPep3;
+    private TextView indPep4;
+    private TextView indEp1;
+    private TextView indEp2;
+    private TextView indEp3;
+    private TextView indEp4;
 
     private ListView list;
     private ArrayAdapter<String> historicAdapter;
@@ -336,11 +354,15 @@ public class MainActivity extends AppCompatActivity {
     // afficher indice :
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        indices = findViewById(R.id.indices);
+        indices.setVisibility(View.VISIBLE);
         switch (item.getItemId()){
             case R.id.indice1:
+                afficherIndice1();
                 Toast.makeText(this,item.getTitle(), Toast.LENGTH_LONG).show();
                 break;
             case R.id.indice2:
+                afficherIndice2();
                 Toast.makeText(this,item.getTitle(), Toast.LENGTH_LONG).show();
                 break;
 
@@ -349,6 +371,40 @@ public class MainActivity extends AppCompatActivity {
 
         }
         return true;
+    }
+
+    public void afficherIndice1(){
+
+        indicePep = findViewById(indicePepinTxt);
+        indicePepin = findViewById(R.id.indicePepin);
+        indPep1 = findViewById(R.id.indicePepin1);
+        indPep2 = findViewById(R.id.indicePepin2);
+        indPep3 = findViewById(R.id.indicePepin3);
+        indPep4 = findViewById(R.id.indicePepin4);
+
+        indicePep.setVisibility(View.VISIBLE);
+        indicePepin.setVisibility(View.VISIBLE);
+        indPep1.setVisibility(View.VISIBLE);
+        indPep2.setVisibility(View.VISIBLE);
+        indPep3.setVisibility(View.VISIBLE);
+        indPep4.setVisibility(View.VISIBLE);
+    }
+
+    public void afficherIndice2(){
+
+        indiceEp = findViewById(indiceEpTxt);
+        indicesEpluchure = findViewById(R.id.indiceEp);
+        indEp1 = findViewById(R.id.indiceEp1);
+        indEp2 = findViewById(R.id.indiceEp2);
+        indEp3 = findViewById(R.id.indiceEp3);
+        indEp4 = findViewById(R.id.indiceEp4);
+
+        indiceEp.setVisibility(View.VISIBLE);
+        indicesEpluchure.setVisibility(View.VISIBLE);
+        indEp1.setVisibility(View.VISIBLE);
+        indEp2.setVisibility(View.VISIBLE);
+        indEp3.setVisibility(View.VISIBLE);
+        indEp4.setVisibility(View.VISIBLE);
     }
 
 // Génération d'une liste contenenant tout les fruits
