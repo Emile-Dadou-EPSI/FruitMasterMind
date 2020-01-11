@@ -66,10 +66,10 @@ public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdap
         holder.fruit2.setImageDrawable(m_Histo.get(position).getImageFruit(1));
         holder.fruit3.setImageDrawable(m_Histo.get(position).getImageFruit(2));
         holder.fruit4.setImageDrawable(m_Histo.get(position).getImageFruit(3));
-        holder.indice1.setText(m_Histo.get(position).getInsertedChar(0));
-        holder.indice2.setText(m_Histo.get(position).getInsertedChar(1));
-        holder.indice3.setText(m_Histo.get(position).getInsertedChar(2));
-        holder.indice4.setText(m_Histo.get(position).getInsertedChar(3));
+        holder.indice1.setText(String.valueOf(m_Histo.get(position).getInsertedChar(0)));
+        holder.indice2.setText(String.valueOf(m_Histo.get(position).getInsertedChar(1)));
+        holder.indice3.setText(String.valueOf(m_Histo.get(position).getInsertedChar(2)));
+        holder.indice4.setText(String.valueOf(m_Histo.get(position).getInsertedChar(3)));
     }
 
     @Override

@@ -21,6 +21,7 @@ import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -70,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
     private List<Fruit> userGuessList = new ArrayList<Fruit>();
     private List<Fruit> listToFind = new ArrayList<>();
 
-
-
+    private List<Fruit> listeTest1 = new ArrayList<>();
+    private List<Fruit> listeTest2 = new ArrayList<>();
 
 
 
@@ -86,7 +87,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         list = findViewById(R.id.recyclerview);
         listToFind = initGameList();
-
+        initTestListe(listeTest1, listeTest2);
+        Toast.makeText(MainActivity.this, listToFind.get(0).getName() + listToFind.get(1).getName() + listToFind.get(2).getName() + listToFind.get(3).getName(), Toast.LENGTH_LONG).show();
         //Buttons for User Choice
         btnChoice1 = (Button) findViewById(R.id.btnChoice1);
         btnChoice2 = (Button) findViewById(R.id.btnChoice2);
@@ -412,12 +414,18 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                //Toast.makeText(MainActivity.this, "" + userGuessList.get(0).getName(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(MainActivity.this, userGuessList.get(0).getName() + userGuessList.get(1).getName() + userGuessList.get(2).getName() + userGuessList.get(3).getName(), Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, listToFind.get(0).getName() + listToFind.get(1).getName() + listToFind.get(2).getName() + listToFind.get(3).getName(), Toast.LENGTH_LONG).show();
                 Resources res = getResources();
                 charToInsert = checkUserInput(userGuessList, listToFind, MAX_FRUITS);
                 checkVictoryConditions(listToFind, userGuessList);
                 adapter.addListHisto(new ListHistoric(res, tabIntFruits, charToInsert));
                 list.setLayoutManager(lm);
                 list.setAdapter(adapter);
+                userGuessList.clear();
+                charToInsert.clear();
+
                 //list.notify();
             }
         });
@@ -442,7 +450,7 @@ public class MainActivity extends AppCompatActivity {
     public List<Fruit> initGameList() {
         List<Fruit> fruitsToFind = new ArrayList<Fruit>();
         List<Integer> listNum = new ArrayList<Integer>();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i <= 4; i++) {
             randNum = (int) (Math.random() * 9);
             // Vérifie si le nombre généré est contenu dans la liste (donc si le fruit est déjà présent)
             // et génère un nouveau numéro
@@ -468,10 +476,10 @@ public class MainActivity extends AppCompatActivity {
     // useless
     private void checkVictoryConditions(List<Fruit> listToGuess, List<Fruit> userGuessList) {
         if (listToGuess.equals(userGuessList)) {
-            Toast.makeText(MainActivity.this, "Yay you're the master fruiter",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainActivity.this, "Yay you're the master fruiter",Toast.LENGTH_SHORT).show();
         }
         else {
-            Toast.makeText(MainActivity.this,"Fail", Toast.LENGTH_LONG).show();
+            //Toast.makeText(MainActivity.this,"Fail", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -479,24 +487,39 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Character> checkUserInput(List<Fruit>userInput, List<Fruit>inGameFruits, int MAX_FRUITS){ //call a chaque fois que l'utilisateur click sur valider
         List<Character> result = new ArrayList<Character>();
-
+        //System.out.println("Taille de la liste user " + userInput.size());
+        //System.out.println("Taille de la liste a trouver " + inGameFruits.size());
+        //Toast.makeText(MainActivity.this, String.valueOf(userInput.size() + " " + String.valueOf(inGameFruits.size())), Toast.LENGTH_LONG).show();
+        //Toast.makeText(MainActivity.this, String.valueOf(userGuessList.size()), Toast.LENGTH_LONG).show();
         for(int i = 0; i < MAX_FRUITS; i++){
             char tmpResult = 'O';
+            result.add(i, tmpResult);
 
-            if(inGameFruits.contains(userInput.get(i))){
-                if(inGameFruits.get(i).equals(userInput.get(i))){
-                    tmpResult = 'X';
-                }
-                else{
+            for(int j=0; j < MAX_FRUITS; j++){
+                if(userInput.get(i).getName() == inGameFruits.get(i).getName()){
                     tmpResult = 'V';
+                    result.add(i, tmpResult);
+                    if(i == j){
+                        tmpResult = 'X';
+                        result.add(i, tmpResult);
+                    }
                 }
             }
-
-            result.add(tmpResult);
         }
+        //Toast.makeText(MainActivity.this, result.get(0) + result.get(1) + result.get(2) + result.get(3), Toast.LENGTH_LONG).show();
         return result;
     }
 
+    private void initTestListe(List<Fruit> test1, List<Fruit> test2) {
+        test1.add(0, new Fruit(enumFruits.BANANE));
+        test1.add(1, new Fruit(enumFruits.BANANE));
+        test1.add(2, new Fruit(enumFruits.BANANE));
+        test1.add(3, new Fruit(enumFruits.KIWI));
 
+        test2.add(0, new Fruit(enumFruits.BANANE));
+        test2.add(1, new Fruit(enumFruits.BANANE));
+        test2.add(2, new Fruit(enumFruits.BANANE));
+        test2.add(3, new Fruit(enumFruits.BANANE));
+    }
 
 }

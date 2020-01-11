@@ -22,4 +22,15 @@ public class Fruit {
         }
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    private Boolean getHasSeeds() {
+        return this.hasSeeds;
+    }
+
+    private Boolean getPeelable() {
+        return this.peelable;
+    }
 }

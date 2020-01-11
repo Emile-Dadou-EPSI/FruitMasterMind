@@ -28,7 +28,7 @@ class ListHistoric {
     }
 
     public Character getInsertedChar(int index) {
-        if (index < 0 ||index >= 4) {
+        if (index < 0 || index >= 4) {
             return null;
         }
         return insertChar[index];
