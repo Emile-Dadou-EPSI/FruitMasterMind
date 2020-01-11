@@ -9,7 +9,7 @@ import android.graphics.drawable.Drawable;
 import java.util.List;
 
 class ListHistoric {
-    Drawable[] images;
+    Drawable[] images = new Drawable[4];
 
     public ListHistoric(Resources res, Integer[] fruitsInput) {
         for (int i = 0; i < 4; i++) {

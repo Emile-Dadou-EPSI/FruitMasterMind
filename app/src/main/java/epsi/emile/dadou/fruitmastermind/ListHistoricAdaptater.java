@@ -80,7 +80,10 @@ public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdap
 
         public ItemView(@NonNull View view) {
             super(view);
-
+            fruit1 = view.findViewById(R.id.image1);
+            fruit2 = view.findViewById(R.id.image2);
+            fruit3 = view.findViewById(R.id.image3);
+            fruit4 = view.findViewById(R.id.image4);
         }
     }
 }
