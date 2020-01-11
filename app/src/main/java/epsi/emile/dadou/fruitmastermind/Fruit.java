@@ -11,14 +11,14 @@ public class Fruit {
     public Fruit(enumFruits fruit) {
         this.name = fruit.toString();
         switch (name) {
-            case "BANANE" : this.hasSeeds = false; this.peelable = true;
-            case "FRAISE" : this.hasSeeds = false; this.peelable = false;
-            case "FRAMBOISE" : this.hasSeeds = false; this.peelable = false;
-            case "KIWI" : this.hasSeeds = false; this.peelable = true;
-            case "ORANGE" : this.hasSeeds = true; this.peelable = true;
-            case "PRUNE" : this.hasSeeds = true; this.peelable = false;
-            case "RAISIN" : this.hasSeeds = true; this.peelable = false;
-            case "CITRON" : this.hasSeeds = true; this.peelable = true;
+            case "BANANE" : this.hasSeeds = false; this.peelable = true; break;
+            case "FRAISE" : this.hasSeeds = false; this.peelable = false; break;
+            case "FRAMBOISE" : this.hasSeeds = false; this.peelable = false; break;
+            case "KIWI" : this.hasSeeds = false; this.peelable = true; break;
+            case "ORANGE" : this.hasSeeds = true; this.peelable = true; break;
+            case "PRUNE" : this.hasSeeds = true; this.peelable = false; break;
+            case "RAISIN" : this.hasSeeds = true; this.peelable = false; break;
+            case "CITRON" : this.hasSeeds = true; this.peelable = true; break;
         }
     }
 
@@ -26,11 +26,11 @@ public class Fruit {
         return this.name;
     }
 
-    private Boolean getHasSeeds() {
+    public Boolean getHasSeeds() {
         return this.hasSeeds;
     }
 
-    private Boolean getPeelable() {
+    public Boolean getPeelable() {
         return this.peelable;
     }
 }

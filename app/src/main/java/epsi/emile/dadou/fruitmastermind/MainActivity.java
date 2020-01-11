@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
     List<Character> charToInsert = new ArrayList<Character>() ;
 
     private RecyclerView list;
+    private ArrayAdapter<String> historicAdapter;
 
     LinearLayoutManager lm = new LinearLayoutManager(MainActivity.this);
     ListHistoricAdaptater adapter = new ListHistoricAdaptater(lm);
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
     private int randNum;
     private List<Fruit> userGuessList = new ArrayList<Fruit>();
     private List<Fruit> listToFind = new ArrayList<>();
+
 
 
     private LinearLayout indices;
@@ -115,6 +117,28 @@ public class MainActivity extends AppCompatActivity {
         listToFind = initGameList();
         //Toast.makeText(MainActivity.this, listToFind.get(0).getName() + listToFind.get(1).getName() + listToFind.get(2).getName() + listToFind.get(3).getName(), Toast.LENGTH_LONG).show();
         //Buttons for User Choice
+
+        indPep1 = findViewById(R.id.indicePepin1);
+        indPep2 = findViewById(R.id.indicePepin2);
+        indPep3 = findViewById(R.id.indicePepin3);
+        indPep4 = findViewById(R.id.indicePepin4);
+
+        //Log.d("booleans: ", Boolean.toString(false));
+        indPep1.setText(Boolean.toString(listToFind.get(0).getHasSeeds()));
+        indPep2.setText(Boolean.toString(listToFind.get(1).getHasSeeds()));
+        indPep3.setText(Boolean.toString(listToFind.get(2).getHasSeeds()));
+        indPep4.setText(Boolean.toString(listToFind.get(3).getHasSeeds()));
+
+        indEp1 = findViewById(R.id.indiceEp1);
+        indEp2 = findViewById(R.id.indiceEp2);
+        indEp3 = findViewById(R.id.indiceEp3);
+        indEp4 = findViewById(R.id.indiceEp4);
+
+        indEp1.setText(Boolean.toString(listToFind.get(0).getPeelable()));
+        indEp2.setText(Boolean.toString(listToFind.get(1).getPeelable()));
+        indEp3.setText(Boolean.toString(listToFind.get(2).getPeelable()));
+        indEp4.setText(Boolean.toString(listToFind.get(3).getPeelable()));
+
         btnChoice1 = (Button) findViewById(R.id.btnChoice1);
         btnChoice2 = (Button) findViewById(R.id.btnChoice2);
         btnChoice3 =(Button) findViewById(R.id.btnChoice3);
@@ -440,7 +464,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
                 Resources res = getResources();
                 charToInsert = checkUserInput(userGuessList, listToFind, MAX_FRUITS);
                 Boolean endGame = checkVictoryConditions(charToInsert);
@@ -637,15 +660,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void popupEndGame(Boolean endGame){
+    private void popupEndGame(final Boolean endGame){
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
         View mView = getLayoutInflater().inflate(R.layout.activity_end_game, null);
         TextView mVictoireDefaite = (TextView) mView.findViewById(R.id.VictoireDefaite);
         TextView score = (TextView) mView.findViewById(R.id.textView5);
         TextView nbVic = (TextView) mView.findViewById(R.id.textView4);
         Button mNewGame = (Button) mView.findViewById(R.id.NewGame);
-        Button mRestart = (Button) mView.findViewById(R.id.Restart);
-        Button mQuitt = (Button) mView.findViewById(R.id.Quitt);
+        final Button mRestart = (Button) mView.findViewById(R.id.Restart);
+        final Button mQuitt = (Button) mView.findViewById(R.id.Quitt);
 
         if (endGame) {
             mVictoireDefaite.setText("Victoire");
@@ -663,24 +686,34 @@ public class MainActivity extends AppCompatActivity {
 
         mNewGame.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { // Rajouter le score
+            public void onClick(View v) {
                 COUPS_RESTANTS = 10;
                 tag_hints = 0;
                 adapter.clearList();
                 NbTries.setText(String.valueOf(COUPS_RESTANTS));
                 listToFind.clear();
                 listToFind = initGameList();
+                if (!endGame) {
+                    Score = 0;
+                    NbVictories = 0;
+                    Total_Score.setText(String.valueOf(Score));
+                }
                 dialog.cancel();
             }
         });
 
-        mRestart.setOnClickListener(new View.OnClickListener() { // Rajouter le score
+        mRestart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 COUPS_RESTANTS = 10;
                 tag_hints = 0;
                 adapter.clearList();
                 NbTries.setText(String.valueOf(COUPS_RESTANTS));
+                if (!endGame) {
+                    Score = 0;
+                    NbVictories = 0;
+                    Total_Score.setText(String.valueOf(Score));
+                }
                 dialog.cancel();
             }
         });
