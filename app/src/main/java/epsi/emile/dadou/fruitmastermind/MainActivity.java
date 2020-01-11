@@ -1,10 +1,13 @@
 package epsi.emile.dadou.fruitmastermind;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.TypeConverter;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -459,11 +462,54 @@ public class MainActivity extends AppCompatActivity {
         return fruitsToFind;
     }
 
+    private void popupEndGame(){
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.activity_end_game, null);
+        TextView mVictoireDefaite = (TextView) mView.findViewById(R.id.VictoireDefaite);
+        Button mNewGame = (Button) mView.findViewById(R.id.NewGame);
+        Button mRestart = (Button) mView.findViewById(R.id.Restart);
+        Button mQuitt = (Button) mView.findViewById(R.id.Quitt);
+
+        mBuilder.setView(mView);
+        final AlertDialog dialog = mBuilder.create();
+        dialog.show();
+
+        mNewGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        mRestart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        mQuitt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openStartPage();
+            }
+        });
+
+
+    }
+
+    public void openStartPage(){
+        Intent intent = new Intent(this, StartPage.class);
+        startActivity(intent);
+    }
+
     // Vérification de victoire si les deux listes sont égales
     // useless
     private void checkVictoryConditions(List<Fruit> listToGuess, List<Fruit> userGuessList) {
         if (listToGuess.equals(userGuessList)) {
             Toast.makeText(MainActivity.this, "Yay you're the master fruiter",Toast.LENGTH_SHORT).show();
+
+
         }
     }
 
