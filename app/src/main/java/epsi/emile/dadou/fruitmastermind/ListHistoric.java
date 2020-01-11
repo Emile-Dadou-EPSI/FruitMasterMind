@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Drawable;
 
 import java.util.List;
-
+//Creation d'une ligne pour l'historique des essais
 class ListHistoric {
     Drawable[] images;
 
