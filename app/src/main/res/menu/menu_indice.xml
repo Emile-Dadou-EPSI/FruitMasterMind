@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/pepin"
-        android:title="indice pépin" />
+        android:id="@+id/indice1"
+        android:title="indice : Pépins ?" />
     <item
-        android:id="@+id/epluchure"
-        android:title="indice épluchure"/>
-
+        android:id="@+id/indice2"
+        android:title="indice : Epluchure ?" />
 </menu>

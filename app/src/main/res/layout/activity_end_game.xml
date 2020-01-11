@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/VictoireDefaite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Victoire ou Défaite"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/Txt"
+        android:layout_below="@+id/VictoireDefaite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fin du jeu ! Si vous voulez continuer à jouer cliquer sur 'Nouvelle partie' ou sur 'Rejouer'. Cliqué sur 'Quitter' pour sortir du jeu." />
+
+    <Button
+        android:id="@+id/NewGame"
+        android:layout_below="@+id/Txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nouvelle Partie"
+        android:layout_alignParentRight="true"/>
+
+    <Button
+        android:id="@+id/Restart"
+        android:layout_below="@+id/NewGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rejouer"
+        android:layout_alignParentRight="true"/>
+
+    <Button
+        android:id="@+id/Quitt"
+        android:layout_below="@+id/Restart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quitter"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>
