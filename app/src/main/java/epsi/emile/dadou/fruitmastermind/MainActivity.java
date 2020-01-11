@@ -528,12 +528,12 @@ public class MainActivity extends AppCompatActivity {
 
         for(int i = 0; i < MAX_FRUITS; i++){
             char tmpResult = 'O';
-            //result.add(i, tmpResult);
+
 
             for(int j=0; j < MAX_FRUITS; j++){
                 if(userInput.get(i).getName().equals(inGameFruits.get(j).getName())){
                     tmpResult = 'V';
-                    //result.add(i, tmpResult);
+
                     if(i == j){
                         tmpResult = 'X';
                     }
