@@ -47,9 +47,12 @@ public class MainActivity extends AppCompatActivity {
 
     List<ListHistoric> m_historic = new ArrayList<ListHistoric>() ;
 
+    int NbVictories = 0;
+    int Score = 0;
     int MAX_FRUITS = 4;
     int COUPS_RESTANTS = 10;
     TextView NbTries;
+    TextView Total_Score;
     int tag_hints = 0;
 
    // Listes des boutons pour choisir les fruits
@@ -115,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         btnChoice3 =(Button) findViewById(R.id.btnChoice3);
         btnChoice4=(Button) findViewById(R.id.btnChoice4);
         validateButton = (Button) findViewById(R.id.validateButton);
+        Total_Score = findViewById(R.id.score);
 
 
         //Update User Choices
@@ -447,14 +451,24 @@ public class MainActivity extends AppCompatActivity {
                 NbTries.setText(String.valueOf(COUPS_RESTANTS));
                 Toast.makeText(MainActivity.this, String.valueOf(endGame), Toast.LENGTH_LONG).show();
                 if (endGame.booleanValue() == true) {
-                    popupEndGame();
+                    Score = Score + COUPS_RESTANTS;
+                    NbVictories = NbVictories + 1;
+
+                    //TextView txt1 = findViewById(R.id.textView3);
+                    //txt1.setText("Coucou");
+                    //TextView txt2 = findViewById(R.id.textView5);
+                    //txt2.setText("Coucou2");
+                    popupEndGame(endGame);
                     Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_LONG).show();
                 }
                 else if (endGame.booleanValue() == false && COUPS_RESTANTS == 0) {
-                    popupEndGame();
+                    Score = Score + COUPS_RESTANTS;
+                    //NbVictories = NbVictories;
+
+                    popupEndGame(endGame);
                     Toast.makeText(MainActivity.this, "Fail", Toast.LENGTH_LONG).show();
                 }
-
+                Total_Score.setText(String.valueOf(Score));
                 //userGuessList.clear();
                 //charToInsert.clear();
 
@@ -634,28 +648,44 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void popupEndGame(){
+    private void popupEndGame(Boolean endGame){
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
         View mView = getLayoutInflater().inflate(R.layout.activity_end_game, null);
         TextView mVictoireDefaite = (TextView) mView.findViewById(R.id.VictoireDefaite);
+        TextView score = (TextView) mView.findViewById(R.id.textView5);
+        TextView nbVic = (TextView) mView.findViewById(R.id.textView4);
         Button mNewGame = (Button) mView.findViewById(R.id.NewGame);
         Button mRestart = (Button) mView.findViewById(R.id.Restart);
         Button mQuitt = (Button) mView.findViewById(R.id.Quitt);
 
+        if (endGame) {
+            mVictoireDefaite.setText("Victoire");
+        }
+        else {
+            mVictoireDefaite.setText("Defaite");
+        }
+        nbVic.setText(String.valueOf(this.NbVictories));
+        score.setText(String.valueOf(this.Score));
         mBuilder.setView(mView);
+
         final AlertDialog dialog = mBuilder.create();
+
         dialog.show();
 
         mNewGame.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                finish();
-                startActivity(intent);
+            public void onClick(View v) { // Rajouter le score
+                COUPS_RESTANTS = 10;
+                tag_hints = 0;
+                adapter.clearList();
+                NbTries.setText(String.valueOf(COUPS_RESTANTS));
+                listToFind.clear();
+                listToFind = initGameList();
+                dialog.cancel();
             }
         });
 
-        mRestart.setOnClickListener(new View.OnClickListener() {
+        mRestart.setOnClickListener(new View.OnClickListener() { // Rajouter le score
             @Override
             public void onClick(View v) {
                 COUPS_RESTANTS = 10;
