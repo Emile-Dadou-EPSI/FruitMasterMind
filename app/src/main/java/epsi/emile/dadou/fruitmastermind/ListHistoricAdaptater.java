@@ -2,79 +2,85 @@ package epsi.emile.dadou.fruitmastermind;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.text.style.BackgroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ListHistoricAdaptater extends ArrayAdapter<ListHistoric> {
+public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdaptater.ItemView> {
 
-    public ListHistoricAdaptater(Context context, List<ListHistoric> ListHistorics) {
-        super(context, 0, ListHistorics);
+    private List<ListHistoric> m_Histo;
+
+    // Constructeur
+    public ListHistoricAdaptater(final LinearLayoutManager L) {
+        m_Histo = new ArrayList<ListHistoric>();
+
+        registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onItemRangeChanged(int positionStart, int itemCount) {
+                super.onItemRangeChanged(positionStart, itemCount);
+                L.scrollToPosition(m_Histo.size() - 1);
+            }
+        });
     }
 
+    // Ajoute un item a la list
+    public void addListHisto(ListHistoric lh) {
+        m_Histo.add(lh);
+        notifyDataSetChanged();
+    }
+
+    // Efface la list
+    public void clearList() {
+        m_Histo.clear();
+        notifyDataSetChanged();
+    }
+
+    @NonNull
+    @Override
+    public ListHistoricAdaptater.ItemView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater infl = LayoutInflater.from(parent.getContext());
+        View view = infl.inflate(R.layout.activity_historic_list, parent, false);
+        return new ItemView(view);
+    }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_historic_list,parent, false);
-        }
-
-        ListHistoricHolder viewHolder = (ListHistoricHolder) convertView.getTag();
-        if(viewHolder == null){
-            viewHolder = new ListHistoricHolder();
-            viewHolder.image1 = (ImageView) convertView.findViewById(R.id.image1);
-            viewHolder.image2 = (ImageView) convertView.findViewById(R.id.image2);
-            viewHolder.image3 = (ImageView) convertView.findViewById(R.id.image3);
-            viewHolder.image4 = (ImageView) convertView.findViewById(R.id.image4);
-
-            viewHolder.indice1 = (TextView) convertView.findViewById(R.id.indice1);
-            viewHolder.indice2 = (TextView) convertView.findViewById(R.id.indice2);
-            viewHolder.indice3 = (TextView) convertView.findViewById(R.id.indice3);
-            viewHolder.indice4 = (TextView) convertView.findViewById(R.id.indice4);
-
-            convertView.setTag(viewHolder);
-        }
-
-        //getItem(position) va récupérer l'item [position] de la List<ListHistoric> ListHistorics
-        ListHistoric listHistoric = getItem(position);
-
-        viewHolder.image1.setBackgroundResource(listHistoric.getImage1());
-        viewHolder.image2.setBackgroundResource(listHistoric.getImage2());
-        viewHolder.image3.setBackgroundResource(listHistoric.getImage3());
-        viewHolder.image4.setBackgroundResource(listHistoric.getImage4());
-
-        //viewHolder.image1.setImageDrawable(getResources().getDrawable(listHistoric.getImage1()));
-        //viewHolder.image2.setImageDrawable(listHistoric.getImage2());
-        //viewHolder.image3.setImageDrawable(listHistoric.getImage3());
-        //viewHolder.image4.setImageDrawable(listHistoric.getImage4()));
-
-        viewHolder.indice1.setText(listHistoric.getIndice1());
-        viewHolder.indice2.setText(listHistoric.getIndice2());
-        viewHolder.indice3.setText(listHistoric.getIndice3());
-        viewHolder.indice4.setText(listHistoric.getIndice4());
-
-        return convertView;
+    public void onBindViewHolder(@NonNull ListHistoricAdaptater.ItemView holder, int position) {
+        holder.fruit1.setImageDrawable(m_Histo.get(position).getImageFruit(0));
+        holder.fruit2.setImageDrawable(m_Histo.get(position).getImageFruit(1));
+        holder.fruit3.setImageDrawable(m_Histo.get(position).getImageFruit(3));
+        holder.fruit4.setImageDrawable(m_Histo.get(position).getImageFruit(4));
     }
 
-    public class ListHistoricHolder {
-        public ImageView image1;
-        public ImageView image2;
-        public ImageView image3;
-        public ImageView image4;
-
-        public TextView indice1;
-        public TextView indice2;
-        public TextView indice3;
-        public TextView indice4;
+    @Override
+    public int getItemCount() {
+        return m_Histo.size();
     }
 
+    public class ItemView extends RecyclerView.ViewHolder{
+
+        public ImageView fruit1;
+        public ImageView fruit2;
+        public ImageView fruit3;
+        public ImageView fruit4;
+
+        public ItemView(@NonNull View view) {
+            super(view);
+
+        }
+    }
 }
