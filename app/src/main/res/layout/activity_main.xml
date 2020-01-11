@@ -78,7 +78,7 @@
             android:gravity="center"/>
         <LinearLayout
             android:id="@+id/indicePepin"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -219,7 +219,7 @@
     <LinearLayout
         android:id="@+id/Lay2"
         android:layout_width="match_parent"
-        android:layout_height="463dp"
+        android:layout_height="465dp"
         android:layout_below="@+id/Lay1"
         android:orientation="vertical">
 
@@ -234,7 +234,7 @@
         android:id="@+id/Lay3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Lay2"
+        android:layout_above="@id/vuChoice"
         android:layout_gravity="bottom"
         android:gravity="bottom"
         android:orientation="vertical">
@@ -251,7 +251,7 @@
         android:id="@+id/vuChoice"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@+id/Lay3">
+        android:layout_alignParentBottom="true">
 
         <LinearLayout
             android:id="@+id/choice1"

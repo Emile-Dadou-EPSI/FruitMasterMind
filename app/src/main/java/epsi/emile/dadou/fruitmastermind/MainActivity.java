@@ -1,3 +1,9 @@
+/*
+*
+* Bonjour Monsieur notre groupe est composé de Emile DADOU, Guillaume GOUHIER et Yoan FILIPE
+*
+* */
+
 package epsi.emile.dadou.fruitmastermind;
 
 import androidx.annotation.RequiresApi;
@@ -111,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         list = findViewById(R.id.recyclerview);
         NbTries = findViewById(R.id.triesNb);
         listToFind = initGameList();
-        Toast.makeText(MainActivity.this, listToFind.get(0).getName() + listToFind.get(1).getName() + listToFind.get(2).getName() + listToFind.get(3).getName(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(MainActivity.this, listToFind.get(0).getName() + listToFind.get(1).getName() + listToFind.get(2).getName() + listToFind.get(3).getName(), Toast.LENGTH_LONG).show();
         //Buttons for User Choice
         btnChoice1 = (Button) findViewById(R.id.btnChoice1);
         btnChoice2 = (Button) findViewById(R.id.btnChoice2);
