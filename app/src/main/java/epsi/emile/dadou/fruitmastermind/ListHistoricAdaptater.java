@@ -23,10 +23,12 @@ import java.util.List;
 //Attempt to use the Recycler view Unused / Dead code
 public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdaptater.ItemView> {
 
-    private List<ListHistoric> m_Histo = new ArrayList<ListHistoric>();
+    private List<ListHistoric> m_Histo;
 
     // Constructeur
     public ListHistoricAdaptater(final LinearLayoutManager L) {
+
+        m_Histo = new ArrayList<ListHistoric>();
 
         registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
@@ -41,6 +43,7 @@ public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdap
     public void addListHisto(ListHistoric lh) {
         m_Histo.add(lh);
         notifyDataSetChanged();
+        //notifyItemChanged(getItemCount());
     }
 
     // Efface la list
@@ -63,6 +66,10 @@ public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdap
         holder.fruit2.setImageDrawable(m_Histo.get(position).getImageFruit(1));
         holder.fruit3.setImageDrawable(m_Histo.get(position).getImageFruit(2));
         holder.fruit4.setImageDrawable(m_Histo.get(position).getImageFruit(3));
+        holder.indice1.setText(m_Histo.get(position).getInsertedChar(0));
+        holder.indice2.setText(m_Histo.get(position).getInsertedChar(1));
+        holder.indice3.setText(m_Histo.get(position).getInsertedChar(2));
+        holder.indice4.setText(m_Histo.get(position).getInsertedChar(3));
     }
 
     @Override
@@ -76,6 +83,10 @@ public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdap
         public ImageView fruit2;
         public ImageView fruit3;
         public ImageView fruit4;
+        public TextView indice1;
+        public TextView indice2;
+        public TextView indice3;
+        public TextView indice4;
 
         public ItemView(@NonNull View view) {
             super(view);
@@ -83,6 +94,10 @@ public class ListHistoricAdaptater extends RecyclerView.Adapter<ListHistoricAdap
             fruit2 = view.findViewById(R.id.image2);
             fruit3 = view.findViewById(R.id.image3);
             fruit4 = view.findViewById(R.id.image4);
+            indice1 = view.findViewById(R.id.indice1);
+            indice2 = view.findViewById(R.id.indice2);
+            indice3 = view.findViewById(R.id.indice3);
+            indice4 = view.findViewById(R.id.indice4);
         }
     }
 }

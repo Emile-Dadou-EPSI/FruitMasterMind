@@ -41,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
     List<ListHistoric> m_historic = new ArrayList<ListHistoric>() ;
 
+    int MAX_FRUITS = 4;
+
+   // Listes des boutons pour choisir les fruits
     public Button btnChoice1;
     private Button btnChoice2;
     private Button btnChoice3;
@@ -48,30 +51,41 @@ public class MainActivity extends AppCompatActivity {
     private Button validateButton;
 
     // élément pour la liste :
-
     ImageView image_1;
     ImageView image_2;
     ImageView image_3;
     ImageView image_4;
 
     Integer[] tabIntFruits = new Integer[4];
+    List<Character> charToInsert = new ArrayList<Character>() ;
 
     private RecyclerView list;
     private ArrayAdapter<String> historicAdapter;
 
-
     LinearLayoutManager lm = new LinearLayoutManager(MainActivity.this);
     ListHistoricAdaptater adapter = new ListHistoricAdaptater(lm);
 
+
     private int randNum;
     private List<Fruit> userGuessList = new ArrayList<Fruit>();
+    private List<Fruit> listToFind = new ArrayList<>();
+
+
+
+
+
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         list = findViewById(R.id.recyclerview);
+        listToFind = initGameList();
 
         //Buttons for User Choice
         btnChoice1 = (Button) findViewById(R.id.btnChoice1);
@@ -395,11 +409,13 @@ public class MainActivity extends AppCompatActivity {
         // useless
         // Fonction de vérification de doublons
         validateButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-
                 Resources res = getResources();
-                adapter.addListHisto(new ListHistoric(res, tabIntFruits));
+                charToInsert = checkUserInput(userGuessList, listToFind, MAX_FRUITS);
+                checkVictoryConditions(listToFind, userGuessList);
+                adapter.addListHisto(new ListHistoric(res, tabIntFruits, charToInsert));
                 list.setLayoutManager(lm);
                 list.setAdapter(adapter);
                 //list.notify();
@@ -407,7 +423,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-// Génération d'une liste contenenant tout les fruits
+    // Génération d'une liste contenenant tout les fruits
     public List<Fruit> allFruitsListInit() {
         List<Fruit> fruits = new ArrayList<Fruit>();
         fruits.add(new Fruit(enumFruits.BANANE));
@@ -454,11 +470,31 @@ public class MainActivity extends AppCompatActivity {
         if (listToGuess.equals(userGuessList)) {
             Toast.makeText(MainActivity.this, "Yay you're the master fruiter",Toast.LENGTH_SHORT).show();
         }
+        else {
+            Toast.makeText(MainActivity.this,"Fail", Toast.LENGTH_LONG).show();
+        }
     }
 
-    //
-    private void initGame() {
 
+
+    private List<Character> checkUserInput(List<Fruit>userInput, List<Fruit>inGameFruits, int MAX_FRUITS){ //call a chaque fois que l'utilisateur click sur valider
+        List<Character> result = new ArrayList<Character>();
+
+        for(int i = 0; i < MAX_FRUITS; i++){
+            char tmpResult = 'O';
+
+            if(inGameFruits.contains(userInput.get(i))){
+                if(inGameFruits.get(i).equals(userInput.get(i))){
+                    tmpResult = 'X';
+                }
+                else{
+                    tmpResult = 'V';
+                }
+            }
+
+            result.add(tmpResult);
+        }
+        return result;
     }
 
 
